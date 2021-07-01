@@ -13,9 +13,12 @@ class PageController
      */
     public function home()
     {
-        // Je retourne une réponse HTTP valide en utilisant la
-        // classe Response du composant HTTPfoundation
-        return new Response('Acceuil');
+        $request = Request::createFromGlobals();
+
+
+
+
+
     }
 
 
