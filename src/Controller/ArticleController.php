@@ -16,7 +16,7 @@ class ArticleController extends AbstractController
     {
         return new Response('<h3>Vous êtes sur la categorie "articles"</h3>');
     }
-    
+
     //utilisation de la méthode wildcard
     //renvoi le titre de l'id concerné
     /**
@@ -47,11 +47,8 @@ class ArticleController extends AbstractController
             ]
         ];
 
+        //retourne la page html amokila en fonction de l'id
         return $this->render('amokila.html.twig', [
-            'article' => $articles[$id]
-        ]);
-
-        return $this->render('digimon.html.twig', [
             'article' => $articles[$id]
         ]);
     }
