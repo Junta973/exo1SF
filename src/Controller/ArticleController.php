@@ -3,10 +3,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/articles", name="articles")
@@ -15,8 +16,7 @@ class ArticleController
     {
         return new Response('<h3>Vous êtes sur la categorie "articles"</h3>');
     }
-
-
+    
     //utilisation de la méthode wildcard
     //renvoi le titre de l'id concerné
     /**
@@ -26,29 +26,34 @@ class ArticleController
     {
         $articles = [
             1 => [
-                "title" => "La vaccination c'est trop géniale",
-                "content" => "bablablblalba",
+                "title" => "AMOKILA",
+                "content" => "Application de gestion de projet",
                 "id" => 1
             ],
             2 => [
-                "title" => "La vaccination c'est pas trop géniale",
-                "content" => "blablablabla",
+                "title" => "AMOKILA",
+                "content" => "Vous pouvez l'utiliser sans modération !",
                 "id" => 2
             ],
             3 => [
-                "title" => "Balkany c'est trop génial",
-                "content" => "balblalblalb",
+                "title" => "Digimon",
+                "content" => "Anime ou dessin animé pourri",
                 "id" => 3
             ],
             4 => [
-                "title" => "Balkany c'est pas trop génial",
-                "content" => "balblalblalb",
+                "title" => "Digimon ou Pokemon",
+                "content" => "La question se pose t-elle vraiment ?",
                 "id" => 4
             ]
         ];
 
-        $article = $articles[$id];
-        return new Response($article['title']);
+        return $this->render('amokila.html.twig', [
+            'article' => $articles[$id]
+        ]);
+
+        return $this->render('digimon.html.twig', [
+            'article' => $articles[$id]
+        ]);
     }
 
 
