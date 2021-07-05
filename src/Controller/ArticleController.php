@@ -35,42 +35,30 @@ class ArticleController extends AbstractController
 
 
     /**
-     * @Route("/list", name="list")
+     * @Route("/categories/", name="categories")
      */
-    public function list()
+    public function categories()
     {
-        return $this->render('article_list.html.twig', [
+        return $this->render('article_categories.html.twig', [
             'articles' => $this->articles
         ]);
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //utilisation de la méthode wildcard
-    //renvoi le titre de l'id concerné
     /**
-     * @Route("/articles/{id}", name="articleShow")
+     * @Route("/categories/{id}", name="articleShow")
      */
-    public function articleShhow($id)
+    public function articleShow($id)
     {
-
-
-        //retourne la page html amokila en fonction de l'id
-        return $this->render('amokila.html.twig', [
-            'article' => $articles[$id]
+        // j'utilise la méthode render de l'AbstractController
+        // pour récupérer un fichier Twig, le transformer en HTML
+        // et le renvoyer en réponse HTTP au navigateur
+        // Pour utiliser des variables dans le fichier twig, je dois
+        // lui passer un tableau en second parametre, avec toutes les
+        // variables que je veux utiliser
+        return $this->render('articleShow.html.twig', [
+            'article' => $this->articles[$id]
         ]);
     }
-
 
 }
